@@ -1,95 +1,121 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WHB手记</title>
-  <!-- 网站图标，引用你上传的 couple.png -->
-  <link rel="icon" type="image/png" href="./couple.png">
-  <!-- 社交分享预览图 -->
-  <meta property="og:image" content="./couple.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['"Noto Serif SC"', 'serif'],
-            sans: ['"Noto Sans SC"', 'sans-serif'],
-          },
-          colors: {
-            dark: '#222222',
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHB 个人作品集</title>
+    <link rel="icon" href="./couple.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0F1014',
+                        cardBg: '#181A22',
+                        accent: '#a78bfa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .item-fade {
-        opacity: 0;
-        transform: translateY(12px);
-        transition: all 0.6s ease-out;
-      }
-      .item-fade.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .work-hover {
-        transition: transform 0.3s ease;
-      }
-      .work-hover:hover {
-        transform: translateX(6px);
-      }
-    }
-  </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(167, 139, 250, 0.15);
+            }
+            .fade-in {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.7s ease-out;
+            }
+            .fade-in.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-<body class="bg-white text-dark min-h-screen px-6 md:px-16 lg:px-32 py-16">
-  <header class="mb-20 item-fade">
-    <h1 class="text-4xl md:text-5xl font-serif font-semibold">WHB</h1>
-    <p class="mt-3 text-gray-500 text-lg">手记 | 个人作品存档，持续迭代中</p>
-    <hr class="mt-6 border-gray-200">
-  </header>
+<body class="bg-dark text-gray-100 min-h-screen">
+    <!-- 头部 -->
+    <header class="container mx-auto px-6 py-16 md:py-24 fade-in">
+        <p class="text-accent tracking-widest text-sm mb-4">WHB / PORTFOLIO</p>
+        <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold leading-tight">
+            Case Collection
+        </h1>
+        <p class="text-gray-400 mt-6 max-w-xl text-lg">
+            项目、笔记与作品合集，记录每一次实践与思考。
+        </p>
+    </header>
 
-  <main class="space-y-16">
-    <!-- 作品1 -->
-    <div class="item-fade work-hover">
-      <span class="text-sm text-gray-400">2026 <span class="border border-gray-200 px-1 py-0.5 ml-1">设计</span></span>
-      <h2 class="text-2xl font-serif mt-2">极简字母标识</h2>
-      <p class="text-gray-500 mt-2">基于几何与留白的 WHB 字母标识探索。</p>
-    </div>
-    <!-- 作品2 -->
-    <div class="item-fade work-hover">
-      <span class="text-sm text-gray-400">2026 <span class="border border-gray-200 px-1 py-0.5 ml-1">开发</span></span>
-      <h2 class="text-2xl font-serif mt-2">个人站点原型</h2>
-      <p class="text-gray-500 mt-2">轻量静态网页，探索最少代码表达最清晰阅读体验。</p>
-    </div>
-    <!-- 作品3 -->
-    <div class="item-fade work-hover">
-      <span class="text-sm text-gray-400">2025 <span class="border border-gray-200 px-1 py-0.5 ml-1">实验</span></span>
-      <h2 class="text-2xl font-serif mt-2">排版练习集</h2>
-      <p class="text-gray-500 mt-2">中文字体排印实验，字距行距与留白的关系。</p>
-    </div>
-  </main>
+    <!-- 作品卡片区域 -->
+    <main class="container mx-auto px-6 pb-20">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- 卡片1 -->
+            <div class="card-hover bg-cardBg rounded-2xl overflow-hidden fade-in">
+                <div class="h-56 bg-slate-700">
+                    <!-- 这里后续替换图片，写法 <img src="./xxx.png" class="w-full h-full object-cover"> -->
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">工程项目案例</h3>
+                    <p class="text-gray-400">ALC墙板相关项目资料、报价与合同整理。</p>
+                </div>
+            </div>
+            <!-- 卡片2 -->
+            <div class="card-hover bg-cardBg rounded-2xl overflow-hidden fade-in">
+                <div class="h-56 bg-slate-700"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">前端网页项目</h3>
+                    <p class="text-gray-400">静态作品集网站，基于 HTML + Tailwind CSS 搭建。</p>
+                </div>
+            </div>
+            <!-- 卡片3 -->
+            <div class="card-hover bg-cardBg rounded-2xl overflow-hidden fade-in">
+                <div class="h-56 bg-slate-700"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">垂钓笔记</h3>
+                    <p class="text-gray-400">南京水域钓位、饵料搭配与渔获记录。</p>
+                </div>
+            </div>
+            <!-- 卡片4 -->
+            <div class="card-hover bg-cardBg rounded-2xl overflow-hidden fade-in">
+                <div class="h-56 bg-slate-700"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">其他创作</h3>
+                    <p class="text-gray-400">Blender、图文、AI绘图相关作品。</p>
+                </div>
+            </div>
+        </div>
+    </main>
 
-  <footer class="mt-32 pt-8 border-t border-gray-200 text-gray-400 text-sm">
-    © 2026 WHB手记 | wuhaibo.com.cn
-  </footer>
+    <!-- 底部 -->
+    <footer class="border-t border-gray-800 container mx-auto px-6 py-10 text-gray-500 fade-in">
+        <p>© 2026 WHB</p>
+    </footer>
 
-  <!-- 滚动淡入动画脚本 -->
-  <script>
-    const items = document.querySelectorAll('.item-fade');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('active');
-        }
-      })
-    }, { threshold: 0.1 });
-    items.forEach(el => observer.observe(el));
-  </script>
+    <!-- 滚动淡入JS -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            })
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
