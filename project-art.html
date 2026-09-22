@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>其他创作 | WHB</title>
+    <link rel="icon" href="./couple.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#07080C',
+                        accent: '#A78BFA',
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                background: linear-gradient(90deg, #E9D8A8, #A78BFA, #7DD3FC);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+            .fade-in {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: all 0.8s ease-out;
+            }
+            .fade-in.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-gray-100 min-h-screen relative overflow-x-hidden">
+    <!-- 背景 -->
+    <div class="fixed inset-0 -z-10">
+        <img
+            src="./bg-aurora.jpg"
+            alt="黑金紫极光背景"
+            class="w-full h-full object-cover object-top"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-black/75"></div>
+    </div>
+
+    <!-- 导航 返回首页 -->
+    <nav class="container mx-auto px-6 pt-8 fade-in">
+        <a href="./index.html" class="text-white/70 hover:text-white inline-flex items-center gap-2">
+            ← 返回作品集首页
+        </a>
+    </nav>
+
+    <!-- 内容区域 -->
+    <div class="container mx-auto px-6 pt-16 pb-24 fade-in">
+        <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-gradient mb-6">其他创作</h1>
+        <p class="text-white/70 max-w-3xl leading-relaxed text-lg">
+            Blender建模、图文、AI绘图相关作品展示。
+        </p>
+    </div>
+
+    <footer class="border-t border-white/10 container mx-auto px-6 py-10 text-white/40 text-xs fade-in">
+        <p>© 2026 WHB</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
