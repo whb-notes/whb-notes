@@ -78,16 +78,15 @@
 </head>
 
 <body class="text-gray-100 min-h-screen relative overflow-x-hidden">
-    <!-- 黑金紫极光背景 -->
+    <!-- 背景：使用你上传的 bg-aurora.jpg -->
     <div class="fixed inset-0 -z-10">
         <img
-            src="https://your-image-url-here.jpg"
-            alt="background"
-            class="w-full h-full object-cover"
+            src="./bg-aurora.jpg"
+            alt="黑金紫极光背景"
+            class="w-full h-full object-cover object-top"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(167,139,250,0.18),transparent_45%),radial-gradient(circle_at_80%_10%,rgba(212,175,55,0.12),transparent_40%)]"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:44px_44px] opacity-40"></div>
+        <!-- 叠加暗色蒙版，保证文字可读性 -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-black/75"></div>
     </div>
 
     <!-- 顶部导航 -->
@@ -96,7 +95,7 @@
         <span class="text-xs text-white/40">PORTFOLIO / 2026</span>
     </nav>
 
-    <!-- 首屏标题区 -->
+    <!-- 首屏标题区（放在背景图上方留白区域） -->
     <header class="container mx-auto px-6 pt-20 md:pt-28 pb-16 fade-in relative">
         <p class="text-accent tracking-[0.4em] text-xs md:text-sm mb-6">WHB / PORTFOLIO</p>
         <h1 class="text-[clamp(2.8rem,7vw,4.8rem)] font-bold leading-[1.05] tracking-tight">
