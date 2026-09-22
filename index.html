@@ -1,185 +1,173 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WHB 个人作品集</title>
-    <link rel="icon" href="./couple.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dark: '#07080C',
-                        cardBg: 'rgba(20, 22, 30, 0.55)',
-                        accent: '#A78BFA',
-                        gold: '#D4AF37',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-gradient {
-                background: linear-gradient(90deg, #E9D8A8, #A78BFA, #7DD3FC);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-            }
-
-            .glass-card {
-                background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-                border: 1px solid rgba(255, 255, 255, 0.08);
-                backdrop-filter: blur(10px);
-            }
-
-            .card-hover {
-                transition: all 0.4s ease;
-            }
-
-            .card-hover:hover {
-                transform: translateY(-10px);
-                border-color: rgba(167, 139, 250, 0.35);
-                box-shadow: 0 25px 50px rgba(167, 139, 250, 0.25);
-            }
-
-            .glow-line {
-                position: absolute;
-                inset: 0;
-                border-radius: inherit;
-                padding: 1px;
-                background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(167, 139, 250, 0.2), rgba(125, 211, 252, 0.3));
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor;
-                        mask-composite: exclude;
-                pointer-events: none;
-                opacity: 0.5;
-            }
-
-            .fade-in {
-                opacity: 0;
-                transform: translateY(40px);
-                transition: all 0.8s ease-out;
-            }
-
-            .fade-in.active {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的作品集</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: #0f172a;
+}
+</style>
 </head>
+<body>
 
-<body class="text-gray-100 min-h-screen relative overflow-x-hidden">
-    <!-- 背景：使用你上传的 bg-aurora.jpg -->
-    <div class="fixed inset-0 -z-10">
-        <img
-            src="./bg-aurora.jpg"
-            alt="黑金紫极光背景"
-            class="w-full h-full object-cover object-top"
-        />
-        <!-- 叠加暗色蒙版，保证文字可读性 -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-black/75"></div>
+<!-- 原有顶部导航 -->
+<header class="w-full px-6 py-6 flex justify-between items-center text-white">
+  <div class="text-xl font-bold">WHB</div>
+  <div class="flex gap-6">
+    <span>PORTFOLIO</span>
+    <span>2026</span>
+  </div>
+</header>
+
+<!-- 原有大标题 -->
+<div class="w-full text-center py-10">
+  <h1 class="text-white text-4xl md:text-5xl font-semibold">Case Collection</h1>
+</div>
+
+<!-- ========== 【新增】导航首页模块 - 图三风格 ========== -->
+<section class="w-full">
+
+  <!-- 顶部浏览器模拟栏 -->
+  <div class="max-w-6xl mx-auto px-6 pt-6">
+    <div class="flex items-center justify-between bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-white/70 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-red-400/70"></span>
+        <span class="w-3 h-3 rounded-full bg-yellow-400/70"></span>
+        <span class="w-3 h-3 rounded-full bg-green-400/70"></span>
+      </div>
+      <div class="flex-1 text-center text-white/60">
+        我的导航
+      </div>
+      <div class="text-white/40 text-xs">
+        https://myhome.dev
+      </div>
+    </div>
+  </div>
+
+  <!-- 主体导航区域 -->
+  <div class="max-w-6xl mx-auto px-6 pt-10 pb-16">
+
+    <!-- 搜索模块 -->
+    <div class="max-w-3xl mx-auto mb-14">
+      <form onsubmit="return doSearch()" class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-3 shadow-lg shadow-purple-500/10">
+        <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input id="searchInput" type="text" placeholder="搜索网页、图片、视频..."
+          class="flex-1 bg-transparent outline-none text-white placeholder-white/40 text-base">
+        <button type="submit"
+          class="px-6 py-2 rounded-full bg-gradient-to-r from-purple-500/70 to-cyan-500/70 hover:from-purple-500 hover:to-cyan-500 text-white font-medium text-sm transition">
+          搜索
+        </button>
+      </form>
     </div>
 
-    <!-- 顶部导航 -->
-    <nav class="container mx-auto px-6 pt-8 flex justify-between items-center fade-in">
-        <a href="./index.html" class="text-sm tracking-[0.3em] text-white/70 hover:text-white transition">WHB</a>
-        <span class="text-xs text-white/40">PORTFOLIO / 2026</span>
-    </nav>
+    <!-- 常用网站图标网格 -->
+    <div class="mb-16">
+      <h2 class="text-white/80 text-lg font-medium mb-6 text-center">常用网站</h2>
+      <div class="grid grid-cols-4 md:grid-cols-8 gap-5 max-w-4xl mx-auto">
 
-    <!-- 首屏标题区（放在背景图上方留白区域） -->
-    <header class="container mx-auto px-6 pt-20 md:pt-28 pb-16 fade-in relative">
-        <p class="text-accent tracking-[0.4em] text-xs md:text-sm mb-6">WHB / PORTFOLIO</p>
-        <h1 class="text-[clamp(2.8rem,7vw,4.8rem)] font-bold leading-[1.05] tracking-tight">
-            <span class="text-gradient">Case Collection</span>
-        </h1>
-        <p class="mt-8 text-white/60 max-w-xl text-base md:text-lg leading-relaxed">
-            项目、笔记与作品合集，记录每一次实践与思考。
-        </p>
-    </header>
+        <a href="https://www.taobao.com" target="_blank" rel="noopener" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 rounded-2xl bg-orange-500/20 border border-orange-400/30 flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-orange-500/30 transition">
+            🛒
+          </div>
+          <span class="text-xs text-white/60 group-hover:text-white/90">淘宝</span>
+        </a>
 
-    <!-- 作品卡片区 -->
-    <main class="container mx-auto px-6 pb-24 relative">
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- 卡片1 跳转工程项目 -->
-            <a href="./project-engineering.html" class="card-hover glass-card rounded-3xl overflow-hidden fade-in group">
-                <div class="relative h-56 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/30 via-purple-500/20 to-amber-400/20"></div>
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]"></div>
-                    <div class="glow-line"></div>
-                </div>
-                <div class="p-7 relative">
-                    <h3 class="text-xl font-semibold mb-2 group-hover:text-gradient transition">工程项目案例</h3>
-                    <p class="text-white/50 text-sm leading-relaxed">ALC墙板相关项目资料、报价与合同整理。</p>
-                </div>
-            </a>
+        <a href="https://www.douyin.com" target="_blank" rel="noopener" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 rounded-2xl bg-gray-700/30 border border-white/10 flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-gray-600/40 transition">
+            🎵
+          </div>
+          <span class="text-xs text-white/60 group-hover:text-white/90">抖音</span>
+        </a>
 
-            <!-- 卡片2 跳转前端网页项目 -->
-            <a href="./project-web.html" class="card-hover glass-card rounded-3xl overflow-hidden fade-in group">
-                <div class="relative h-56 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/30 to-purple-600/20"></div>
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.12),transparent_50%)]"></div>
-                    <div class="glow-line"></div>
-                </div>
-                <div class="p-7 relative">
-                    <h3 class="text-xl font-semibold mb-2 group-hover:text-gradient transition">前端网页项目</h3>
-                    <p class="text-white/50 text-sm leading-relaxed">静态作品集网站，基于 HTML + Tailwind CSS 搭建。</p>
-                </div>
-            </a>
+        <a href="https://www.bilibili.com" target="_blank" rel="noopener" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 rounded-2xl bg-pink-500/20 border border-pink-400/30 flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-pink-500/30 transition">
+            📺
+          </div>
+          <span class="text-xs text-white/60 group-hover:text-white/90">B站</span>
+        </a>
 
-            <!-- 卡片3 跳转垂钓笔记 -->
-<a href="./project-fish.html" class="card-hover glass-card rounded-3xl overflow-hidden fade-in group">
-    <div class="relative h-56 overflow-hidden">
-        <!-- 替换为钓鱼背景图 -->
-        <img src="https://cdn.jsdelivr.net/gh/whb-notes/whb-notes@main/fish-banner.jpg" alt="垂钓笔记" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="glow-line"></div>
+        <a href="https://www.baidu.com" target="_blank" rel="noopener" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 rounded-2xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-blue-500/30 transition">
+            🔍
+          </div>
+          <span class="text-xs text-white/60 group-hover:text-white/90">百度</span>
+        </a>
+
+        <a href="https://www.zhihu.com" target="_blank" rel="noopener" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-blue-600/30 transition">
+            💡
+          </div>
+          <span class="text-xs text-white/60 group-hover:text-white/90">知乎</span>
+        </a>
+
+        <a href="https://www.jd.com" target="_blank" rel="noopener" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 rounded-2xl bg-red-500/20 border border-red-400/30 flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-red-500/30 transition">
+            📦
+          </div>
+          <span class="text-xs text-white/60 group-hover:text-white/90">京东</span>
+        </a>
+
+        <a href="https://weibo.com" target="_blank" rel="noopener" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 rounded-2xl bg-red-400/20 border border-red-300/30 flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-red-400/30 transition">
+            📱
+          </div>
+          <span class="text-xs text-white/60 group-hover:text-white/90">微博</span>
+        </a>
+
+        <a href="https://music.163.com" target="_blank" rel="noopener" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 rounded-2xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-3xl group-hover:scale-110 group-hover:bg-red-600/30 transition">
+            🎶
+          </div>
+          <span class="text-xs text-white/60 group-hover:text-white/90">网易云</span>
+        </a>
+
+      </div>
     </div>
-    <div class="p-7 relative">
-        <h3 class="text-xl font-semibold mb-2 group-hover:text-gradient transition">垂钓笔记</h3>
-        <p class="text-white/50 text-sm leading-relaxed">南京水域钓位、饵料搭配与渔获记录。</p>
+</section>
+<!-- ========== 导航模块结束 ========== -->
+
+<!-- 你原来的项目卡片区域 -->
+<div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 pb-16">
+
+  <a href="project-fish.html" class="group block rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-md hover:border-purple-400/40 hover:shadow-xl hover:shadow-purple-500/10 transition">
+    <div class="aspect-[16/9] overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000&auto=format&fit=crop" alt="垂钓笔记" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
     </div>
-</a>
+    <div class="p-5">
+      <h3 class="text-white text-lg font-semibold mb-1">垂钓笔记</h3>
+      <p class="text-white/50 text-sm">南京水域钓位、饵料搭配、调漂记录与目标鱼种。</p>
+    </div>
+  </a>
 
-            <!-- 卡片4 跳转其他创作 -->
-            <a href="./project-art.html" class="card-hover glass-card rounded-3xl overflow-hidden fade-in group">
-                <div class="relative h-56 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/20 via-pink-500/20 to-amber-400/25"></div>
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,rgba(255,255,255,0.12),transparent_50%)]"></div>
-                    <div class="glow-line"></div>
-                </div>
-                <div class="p-7 relative">
-                    <h3 class="text-xl font-semibold mb-2 group-hover:text-gradient transition">其他创作</h3>
-                    <p class="text-white/50 text-sm leading-relaxed">Blender、图文、AI绘图相关作品。</p>
-                </div>
-            </a>
-        </div>
-    </main>
+  <a href="#" class="group block rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-md hover:border-cyan-400/40 hover:shadow-xl hover:shadow-cyan-500/10 transition">
+    <div class="aspect-[16/9] overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-5xl">
+      📁
+    </div>
+    <div class="p-5">
+      <h3 class="text-white text-lg font-semibold mb-1">工程项目案例</h3>
+      <p class="text-white/50 text-sm">ALC墙板资料、报价合同文档与项目整理。</p>
+    </div>
+  </a>
 
-    <!-- 底部 -->
-    <footer class="border-t border-white/10 container mx-auto px-6 py-10 text-white/40 text-xs fade-in">
-        <p>© 2026 WHB</p>
-    </footer>
+</div>
 
-    <!-- 滚动淡入 -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.12 });
+<script>
+function doSearch() {
+  var q = document.getElementById('searchInput').value.trim();
+  if (q) {
+    window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(q), '_blank');
+  }
+  return false;
+}
+</script>
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
