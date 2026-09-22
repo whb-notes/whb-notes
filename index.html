@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WHB 个人作品集</title>
-    <link rel="icon" href="./couple.png">
+    <link rel="icon" href="./couple.png" />
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        dark: '#0F1014',
-                        cardBg: '#181A22',
-                        accent: '#a78bfa',
+                        dark: '#07080C',
+                        cardBg: 'rgba(20, 22, 30, 0.55)',
+                        accent: '#A78BFA',
+                        gold: '#D4AF37',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -22,25 +24,51 @@
             }
         }
     </script>
+
     <style type="text/tailwindcss">
         @layer utilities {
             .text-gradient {
-                background-clip: text;
+                background: linear-gradient(90deg, #E9D8A8, #A78BFA, #7DD3FC);
                 -webkit-background-clip: text;
+                background-clip: text;
                 color: transparent;
             }
+
+            .glass-card {
+                background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(10px);
+            }
+
             .card-hover {
-                transition: all 0.3s ease;
+                transition: all 0.4s ease;
             }
+
             .card-hover:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 20px 40px rgba(167, 139, 250, 0.15);
+                transform: translateY(-10px);
+                border-color: rgba(167, 139, 250, 0.35);
+                box-shadow: 0 25px 50px rgba(167, 139, 250, 0.25);
             }
+
+            .glow-line {
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                padding: 1px;
+                background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(167, 139, 250, 0.2), rgba(125, 211, 252, 0.3));
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                        mask-composite: exclude;
+                pointer-events: none;
+                opacity: 0.5;
+            }
+
             .fade-in {
                 opacity: 0;
-                transform: translateY(30px);
-                transition: all 0.7s ease-out;
+                transform: translateY(40px);
+                transition: all 0.8s ease-out;
             }
+
             .fade-in.active {
                 opacity: 1;
                 transform: translateY(0);
@@ -48,72 +76,108 @@
         }
     </style>
 </head>
-<body class="bg-dark text-gray-100 min-h-screen">
-    <!-- 头部 -->
-    <header class="container mx-auto px-6 py-16 md:py-24 fade-in">
-        <p class="text-accent tracking-widest text-sm mb-4">WHB / PORTFOLIO</p>
-        <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold leading-tight">
-            Case Collection
+
+<body class="text-gray-100 min-h-screen relative overflow-x-hidden">
+    <!-- 黑金紫极光背景 -->
+    <div class="fixed inset-0 -z-10">
+        <img
+            src="https://your-image-url-here.jpg"
+            alt="background"
+            class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(167,139,250,0.18),transparent_45%),radial-gradient(circle_at_80%_10%,rgba(212,175,55,0.12),transparent_40%)]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:44px_44px] opacity-40"></div>
+    </div>
+
+    <!-- 顶部导航 -->
+    <nav class="container mx-auto px-6 pt-8 flex justify-between items-center fade-in">
+        <a href="#" class="text-sm tracking-[0.3em] text-white/70 hover:text-white transition">WHB</a>
+        <span class="text-xs text-white/40">PORTFOLIO / 2026</span>
+    </nav>
+
+    <!-- 首屏标题区 -->
+    <header class="container mx-auto px-6 pt-20 md:pt-28 pb-16 fade-in relative">
+        <p class="text-accent tracking-[0.4em] text-xs md:text-sm mb-6">WHB / PORTFOLIO</p>
+        <h1 class="text-[clamp(2.8rem,7vw,4.8rem)] font-bold leading-[1.05] tracking-tight">
+            <span class="text-gradient">Case Collection</span>
         </h1>
-        <p class="text-gray-400 mt-6 max-w-xl text-lg">
+        <p class="mt-8 text-white/60 max-w-xl text-base md:text-lg leading-relaxed">
             项目、笔记与作品合集，记录每一次实践与思考。
         </p>
     </header>
 
-    <!-- 作品卡片区域 -->
-    <main class="container mx-auto px-6 pb-20">
+    <!-- 作品卡片区 -->
+    <main class="container mx-auto px-6 pb-24 relative">
         <div class="grid md:grid-cols-2 gap-8">
             <!-- 卡片1 -->
-            <div class="card-hover bg-cardBg rounded-2xl overflow-hidden fade-in">
-                <div class="h-56 bg-slate-700">
-                    <!-- 这里后续替换图片，写法 <img src="./xxx.png" class="w-full h-full object-cover"> -->
+            <a href="#" class="card-hover glass-card rounded-3xl overflow-hidden fade-in group">
+                <div class="relative h-56 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/30 via-purple-500/20 to-amber-400/20"></div>
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]"></div>
+                    <div class="glow-line"></div>
                 </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">工程项目案例</h3>
-                    <p class="text-gray-400">ALC墙板相关项目资料、报价与合同整理。</p>
+                <div class="p-7 relative">
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-gradient transition">工程项目案例</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">ALC墙板相关项目资料、报价与合同整理。</p>
                 </div>
-            </div>
+            </a>
+
             <!-- 卡片2 -->
-            <div class="card-hover bg-cardBg rounded-2xl overflow-hidden fade-in">
-                <div class="h-56 bg-slate-700"></div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">前端网页项目</h3>
-                    <p class="text-gray-400">静态作品集网站，基于 HTML + Tailwind CSS 搭建。</p>
+            <a href="#" class="card-hover glass-card rounded-3xl overflow-hidden fade-in group">
+                <div class="relative h-56 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/30 to-purple-600/20"></div>
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.12),transparent_50%)]"></div>
+                    <div class="glow-line"></div>
                 </div>
-            </div>
+                <div class="p-7 relative">
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-gradient transition">前端网页项目</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">静态作品集网站，基于 HTML + Tailwind CSS 搭建。</p>
+                </div>
+            </a>
+
             <!-- 卡片3 -->
-            <div class="card-hover bg-cardBg rounded-2xl overflow-hidden fade-in">
-                <div class="h-56 bg-slate-700"></div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">垂钓笔记</h3>
-                    <p class="text-gray-400">南京水域钓位、饵料搭配与渔获记录。</p>
+            <a href="#" class="card-hover glass-card rounded-3xl overflow-hidden fade-in group">
+                <div class="relative h-56 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-400/20 via-teal-500/20 to-sky-500/30"></div>
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_60%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+                    <div class="glow-line"></div>
                 </div>
-            </div>
+                <div class="p-7 relative">
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-gradient transition">垂钓笔记</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">南京水域钓位、饵料搭配与渔获记录。</p>
+                </div>
+            </a>
+
             <!-- 卡片4 -->
-            <div class="card-hover bg-cardBg rounded-2xl overflow-hidden fade-in">
-                <div class="h-56 bg-slate-700"></div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">其他创作</h3>
-                    <p class="text-gray-400">Blender、图文、AI绘图相关作品。</p>
+            <a href="#" class="card-hover glass-card rounded-3xl overflow-hidden fade-in group">
+                <div class="relative h-56 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/20 via-pink-500/20 to-amber-400/25"></div>
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,rgba(255,255,255,0.12),transparent_50%)]"></div>
+                    <div class="glow-line"></div>
                 </div>
-            </div>
+                <div class="p-7 relative">
+                    <h3 class="text-xl font-semibold mb-2 group-hover:text-gradient transition">其他创作</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">Blender、图文、AI绘图相关作品。</p>
+                </div>
+            </a>
         </div>
     </main>
 
     <!-- 底部 -->
-    <footer class="border-t border-gray-800 container mx-auto px-6 py-10 text-gray-500 fade-in">
+    <footer class="border-t border-white/10 container mx-auto px-6 py-10 text-white/40 text-xs fade-in">
         <p>© 2026 WHB</p>
     </footer>
 
-    <!-- 滚动淡入JS -->
+    <!-- 滚动淡入 -->
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
-            })
-        }, { threshold: 0.1 });
+            });
+        }, { threshold: 0.12 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
