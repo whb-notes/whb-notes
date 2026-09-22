@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>垂钓笔记 | WHB</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂钓笔记 | WHB作品集</title>
     <link rel="icon" href="./couple.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -23,7 +22,6 @@
             }
         }
     </script>
-
     <style type="text/tailwindcss">
         @layer utilities {
             .text-gradient {
@@ -32,58 +30,56 @@
                 background-clip: text;
                 color: transparent;
             }
-            .fade-in {
-                opacity: 0;
-                transform: translateY(40px);
-                transition: all 0.8s ease-out;
-            }
-            .fade-in.active {
-                opacity: 1;
-                transform: translateY(0);
+            .bg-cover-custom {
+                background: url('./bg-aurora.jpg') center top / cover;
             }
         }
     </style>
 </head>
+<body class="min-h-screen bg-cover-custom bg-fixed text-gray-100">
+    <div class="min-h-screen bg-black/50">
+        <header class="container mx-auto px-6 py-10">
+            <a href="./index.html" class="inline-flex items-center gap-2 text-white/70 hover:text-white transition">
+                <span>← 返回首页</span>
+            </a>
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-gradient mt-6 mb-2">垂钓笔记</h1>
+            <p class="text-white/70">南京周边水域｜钓法｜饵料｜鱼种记录</p>
+        </header>
 
-<body class="text-gray-100 min-h-screen relative overflow-x-hidden">
-    <!-- 背景 -->
-    <div class="fixed inset-0 -z-10">
-        <img
-            src="./bg-aurora.jpg"
-            alt="黑金紫极光背景"
-            class="w-full h-full object-cover object-top"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-black/75"></div>
+        <main class="container mx-auto px-6 pb-20 max-w-3xl">
+            <section class="rounded-2xl bg-white/10 backdrop-blur-md p-8 border border-white/10 mb-8">
+                <h2 class="text-xl font-semibold text-white mb-4">🎣 目标鱼种</h2>
+                <ul class="space-y-2 text-white/80">
+                    <li>• 鲫鱼：底层鱼，喜腥香，适合低温季节作钓</li>
+                    <li>• 鳊鱼：中下层，喜欢谷物香，觅食活跃</li>
+                    <li>• 鲤鱼：警惕性高，偏玉米、薯香饵料</li>
+                    <li>• 昂刺鱼：肉食，夜间口好，蚯蚓效果突出</li>
+                </ul>
+            </section>
+
+            <section class="rounded-2xl bg-white/10 backdrop-blur-md p-8 border border-white/10 mb-8">
+                <h2 class="text-xl font-semibold text-white mb-4">📍 常钓水域</h2>
+                <ul class="space-y-2 text-white/80">
+                    <li>• 运粮河：鲫鱼、昂刺较多，适合野钓休闲</li>
+                    <li>• 秦淮河：鱼种丰富，注意走水问题</li>
+                    <li>• 八卦洲附近：适合找浅滩洄湾作钓</li>
+                </ul>
+            </section>
+
+            <section class="rounded-2xl bg-white/10 backdrop-blur-md p-8 border border-white/10">
+                <h2 class="text-xl font-semibold text-white mb-4">⚙️ 钓具与调漂</h2>
+                <ul class="space-y-2 text-white/80">
+                    <li>• 钩型：金海夕，大小兼顾，刺鱼稳</li>
+                    <li>• 饵料：野战蓝鲫为主，可按需添加拉丝粉</li>
+                    <li>• 调四钓二：基础灵钓，适合静水，抓轻口信号</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="text-center py-10 text-white/40 text-sm">
+            © 2026 WHB
+        </footer>
     </div>
-
-    <!-- 导航 返回首页 -->
-    <nav class="container mx-auto px-6 pt-8 fade-in">
-        <a href="./index.html" class="text-white/70 hover:text-white inline-flex items-center gap-2">
-            ← 返回作品集首页
-        </a>
-    </nav>
-
-    <!-- 内容区域 -->
-    <div class="container mx-auto px-6 pt-16 pb-24 fade-in">
-        <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-gradient mb-6">垂钓笔记</h1>
-        <p class="text-white/70 max-w-3xl leading-relaxed text-lg">
-            南京水域钓位分析、饵料搭配、调漂技巧与渔获记录。
-        </p>
-    </div>
-
-    <footer class="border-t border-white/10 container mx-auto px-6 py-10 text-white/40 text-xs fade-in">
-        <p>© 2026 WHB</p>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
+
