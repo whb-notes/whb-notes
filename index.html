@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHB手记</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-weight:400}
+        body{background:#fafaf8;color:#1a1a1a;font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;max-width:720px;margin:0 auto;padding:4rem 2rem;line-height:1.8;letter-spacing:0.02em}
+        header{margin-bottom:4rem;border-bottom:1px solid #e5e5e0;padding-bottom:2rem}
+        .logo{font-size:2rem;letter-spacing:0.1em;margin-bottom:0.8rem;font-weight:700}
+        .desc{color:#6b6b68;font-size:0.95rem}
+        .section-label{font-size:0.75rem;color:#9a9a96;letter-spacing:0.2em;margin:3rem 0 1rem;display:flex;align-items:center;gap:12px}
+        .section-label::after{content:'';flex:1;height:1px;background:#e5e5e0}
+        .work-item{padding:1.6rem 0;border-bottom:1px solid #f0f0ec;transition:padding-left 0.3s;cursor:pointer}
+        .work-item:hover{padding-left:12px}
+        .work-meta{display:flex;gap:12px;margin-bottom:6px;align-items:baseline}
+        .work-year{font-size:0.8rem;color:#9a9a96}
+        .work-tag{font-size:0.7rem;color:#6b6b68;border:1px solid #e5e5e0;padding:2px 8px;border-radius:2px}
+        .work-title{font-size:1.15rem;margin-bottom:4rem;color:#1a1a1a}
+        .work-desc{font-size:0.9rem;color:#6b6b68}
+        footer{margin-top:5rem;padding-top:2rem;border-top:1px solid #e5e5e0;color:#9a9a96;font-size:0.8rem}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">WHB</div>
+        <p class="desc">手记｜个人作品存档，持续迭代中</p>
+    </header>
+    <main>
+        <div class="section-label">作品存档</div>
+        <div class="work-item">
+            <div class="work-meta">
+                <span class="work-year">2026</span>
+                <span class="work-tag">设计</span>
+            </div>
+            <div class="work-title">极简字母标识</div>
+            <p class="work-desc">基于几何与留白的 WHB 字母标识探索。</p>
+        </div>
+        <div class="work-item">
+            <div class="work-meta">
+                <span class="work-year">2026</span>
+                <span class="work-tag">开发</span>
+            </div>
+            <div class="work-title">个人站点原型</div>
+            <p class="work-desc">轻量静态网页，探索最少代码表达最清晰阅读体验。</p>
+        </div>
+        <div class="work-item">
+            <div class="work-meta">
+                <span class="work-year">2025</span>
+                <span class="work-tag">实验</span>
+            </div>
+            <div class="work-title">排版练习集</div>
+            <p class="work-desc">中文字体排印实验，字距行距与留白的关系。</p>
+        </div>
+    </main>
+    <footer>
+        © 2026 WHB 手记，仅个人存档
+    </footer>
+</body>
+</html>
