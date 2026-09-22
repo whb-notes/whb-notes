@@ -3,36 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>垂钓笔记 | WHB作品集</title>
+    <title>垂钓笔记</title>
     <link rel="icon" href="./couple.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
-                extend: {
-                    colors: {
-                        dark: '#07080C',
-                        accent: '#A78BFA',
-                        gold: '#D4AF37',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
+                extend: {},
             }
         }
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
-            .text-gradient {
-                background: linear-gradient(90deg, #E9D8A8, #A78BFA, #7DD3FC);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
+            .bg-fixed {
+                background-attachment: fixed;
             }
-            .bg-cover-custom {
-                background: url('./bg-aurora.jpg') center top / cover;
-            }
+        }
+        .text-gradient {
+            background: linear-gradient(90deg, #E9D8A8, #A78BFA, #7DD3FC);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .bg-cover-custom {
+            background: url('https://cdn.jsdelivr.net/gh/whb-notes/whb-notes@main/bg-aurora.jpg') center top / cover;
         }
     </style>
 </head>
@@ -43,83 +37,58 @@
                 <span>← 返回首页</span>
             </a>
             <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-gradient mt-6 mb-2">垂钓笔记</h1>
-            <p class="text-white/70">南京周边水域｜钓法｜饵料｜鱼种记录</p>
-           <img src="./fish-banner.jpg" alt="垂钓笔记" class="w-full h-48 object-cover rounded-xl mb-6 shadow-lg">
-</header>
-<main class="container mx-auto px-6 pb-20 max-w-3xl">
+            <p class="text-white/70">南京周边水域 | 钓法 | 饵料 | 鱼种记录</p>
+            <img src="https://cdn.jsdelivr.net/gh/whb-notes/whb-notes@main/fish-banner.jpg" alt="垂钓笔记" class="w-full h-48 object-cover rounded-xl mb-6 shadow-lg">
+        </header>
+
+        <main class="container mx-auto px-6 pb-20 max-w-3xl">
             <!-- ========== 新增标签切换区域 ========== -->
             <section class="rounded-2xl bg-white/10 backdrop-blur-md p-8 border border-white/10 mb-8">
                 <!-- 标签按钮 -->
                 <div class="flex gap-4 mb-6 flex-wrap">
-                    <button onclick="switchTab('place')" id="btn-place" class="px-4 py-2 rounded-lg bg-white/20 transition hover:bg-white/25">📍 钓位</button>
-                    <button onclick="switchTab('bait')" id="btn-bait" class="px-4 py-2 rounded-lg bg-white/10 transition hover:bg-white/15">🎣 饵料</button>
-                    <button onclick="switchTab('float')" id="btn-float" class="px-4 py-2 rounded-lg bg-white/10 transition hover:bg-white/15">⚖️ 调漂</button>
-                    <button onclick="switchTab('fish')" id="btn-fish" class="px-4 py-2 rounded-lg bg-white/10 transition hover:bg-white/15">🐟 目标鱼种</button>
+                    <button onclick="switchTab('place')" id="btn-place" class="px-4 py-2 rounded-lg bg-white/20 transition hover:bg-white/25">钓位</button>
+                    <button onclick="switchTab('bait')" id="btn-bait" class="px-4 py-2 rounded-lg bg-white/10 transition hover:bg-white/15">饵料</button>
+                    <button onclick="switchTab('float')" id="btn-float" class="px-4 py-2 rounded-lg bg-white/10 transition hover:bg-white/15">调漂</button>
+                    <button onclick="switchTab('fish')" id="btn-fish" class="px-4 py-2 rounded-lg bg-white/10 transition hover:bg-white/15">鱼种</button>
                 </div>
 
-                <!-- 标签内容面板 -->
+                <!-- 标签内容 -->
                 <div id="tab-place" class="tab-content">
-                    <h3 class="text-lg font-semibold mb-3 text-white">常钓水域</h3>
-                    <ul class="space-y-2 text-white/80">
-                        <li>• 运粮河：鲫鱼、昂刺较多，适合野钓休闲</li>
-                        <li>• 秦淮河：鱼种丰富，注意走水问题</li>
-                        <li>• 八卦洲附近：适合找浅滩洄湾作钓</li>
-                    </ul>
+                    <h2 class="text-xl font-semibold mb-3">🎣 南京周边钓位</h2>
+                    <p class="text-white/80">运粮河、秦淮河、八卦洲等水域钓点信息，水深、鱼种、停车位置记录。</p>
                 </div>
-
                 <div id="tab-bait" class="tab-content hidden">
-                    <h3 class="text-lg font-semibold mb-3 text-white">饵料搭配</h3>
-                    <ul class="space-y-2 text-white/80">
-                        <li>• 基础饵：野战蓝鲫，四季通用</li>
-                        <li>• 低温（秋冬）：多加腥香，可少量红虫粉</li>
-                        <li>• 高温（夏季）：减少腥，增加谷物香</li>
-                        <li>• 拉丝粉按需添加，控制附钩性</li>
-                    </ul>
+                    <h2 class="text-xl font-semibold mb-3">🥣 饵料配方</h2>
+                    <p class="text-white/80">野战蓝鲫等饵料搭配，不同季节、目标鱼的开饵思路。</p>
                 </div>
-
                 <div id="tab-float" class="tab-content hidden">
-                    <h3 class="text-lg font-semibold mb-3 text-white">调漂方法</h3>
-                    <ul class="space-y-2 text-white/80">
-                        <li>• 调四钓二：空钩半水调4目，挂饵找底钓2目，抓轻口</li>
-                        <li>• 走水环境：调低钓高，稳定性更好</li>
-                        <li>• 钓昂刺鱼：钝钓为主，抓干脆黑漂信号</li>
-                    </ul>
+                    <h2 class="text-xl font-semibold mb-3">⚖️ 调漂教程</h2>
+                    <p class="text-white/80">调四钓二详细步骤，鱼口信号判断，野钓实用技巧。</p>
                 </div>
-
                 <div id="tab-fish" class="tab-content hidden">
-                    <h3 class="text-lg font-semibold mb-3 text-white">目标鱼种特性</h3>
-                    <ul class="space-y-2 text-white/80">
-                        <li>• 鲫鱼：底层鱼，喜腥香，低温季节口最好</li>
-                        <li>• 鳊鱼：中下层，偏爱谷物香</li>
-                        <li>• 鲤鱼：警惕高，薯香、玉米效果佳</li>
-                        <li>• 昂刺鱼：肉食，夜晚口好，蚯蚓效果突出</li>
-                    </ul>
+                    <h2 class="text-xl font-semibold mb-3">🐟 常见鱼种</h2>
+                    <p class="text-white/80">鲫鱼、昂刺鱼、鳊鱼、鲤鱼习性，作钓时机与注意事项。</p>
                 </div>
             </section>
-            <!-- ========== JS交互逻辑 ========== -->
-            <script>
-                function switchTab(tabId) {
-                    // 把所有内容面板隐藏
-                    document.querySelectorAll('.tab-content').forEach(el => {
-                        el.classList.add('hidden');
-                    })
-                    // 重置所有按钮样式
-                    document.querySelectorAll('button').forEach(btn => {
-                        btn.classList.remove('bg-white/20');
-                        btn.classList.add('bg-white/10');
-                    })
-                    // 显示选中的面板
-                    document.getElementById('tab-' + tabId).classList.remove('hidden');
-                    // 激活当前按钮样式
-                    document.getElementById('btn-' + tabId).classList.remove('bg-white/10');
-                    document.getElementById('btn-' + tabId).classList.add('bg-white/20');
-                }
-            </script>
         </main>
-
-        <footer class="text-center py-10 text-white/40 text-sm">
-            © 2026 WHB
-        </footer>
     </div>
+
+    <script>
+        function switchTab(activeTabId) {
+            // 全部隐藏
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // 全部取消激活样式
+            document.querySelectorAll('[id^="btn-"]').forEach(btn => {
+                btn.classList.remove('bg-white/20','hover:bg-white/25');
+                btn.classList.add('bg-white/10','hover:bg-white/15');
+            });
+            // 显示选中内容
+            document.getElementById('tab-' + activeTabId).classList.remove('hidden');
+            // 激活按钮样式
+            const activeBtn = document.getElementById('btn-' + activeTabId);
+            activeBtn.classList.remove('bg-white/10','hover:bg-white/15');
+            activeBtn.classList.add('bg-white/20','hover:bg-white/25');
+        }
+    </script>
 </body>
 </html>
